@@ -1,0 +1,20 @@
+
+
+<%= form_for @instructor_cohort do |f| %>
+
+<div>
+    <%= f.label :instructor_id %>
+    <%= f.select :instructor_id, options_for_select(Instructor.all.map {|instructor| [instructor.full_name, instructor.id]}) %>
+    
+</div>
+   <div>
+    <%= f.label :cohort_id %>
+    <%= f.select :cohort_id, options_for_select(Cohort.all.map {|cohort| [cohort.name, cohort.id]}) %>
+    
+</div>
+  
+<div>
+    <%= f.submit  'Create Instructor Cohort' %>
+</div>
+
+<% end %>

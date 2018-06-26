@@ -1,0 +1,24 @@
+<div>
+    <a href="<%= root_path %>">Go HOME</a>
+</div>
+
+<br>
+
+<%= form_for @student_cohort do |f| %>
+
+<div>
+    <%= f.label :student_id %>
+    <%= f.select :student_id, options_for_select(Student.all.map {|student| [student.full_name, student.id]}) %>
+    
+</div>
+   <div>
+    <%= f.label :cohort_id %>
+    <%= f.select :cohort_id, options_for_select(Cohort.all.map {|course| [course.name, course.id]}) %>
+    
+</div>
+  
+<div>
+    <%= f.submit  'Create Student Cohort' %>
+</div>
+
+<% end %>

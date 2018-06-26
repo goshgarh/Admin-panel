@@ -1,0 +1,137 @@
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+    <div class="navbar-nav nav nav-pills">
+      <a class="nav-item nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="<%= instructors_path %>">Instructors</a>
+      <a class="nav-item nav-link" href="<%= students_path %>">Students</a>
+      <a class="nav-item nav-link" href="<%= courses_path %>">Courses</a>
+       <%= link_to "Cohorts",  cohorts_path, class: "nav-item nav-link" %>
+       <%= link_to "Instructor-Cohorts",  instructor_cohorts_path, class: "nav-item nav-link" %>
+       <%= link_to "Student-Cohorts",  student_cohorts_path, class: "nav-item nav-link active" %>
+    </div>
+  </div>
+</nav>
+
+<div class="atag">  
+        <h4>
+            <%= link_to 'Create new/Change Student Cohort', new_student_cohort_path %>
+        </h4>
+
+        <h4><a href="<%= new_student_path %>">Create new Student</a></h4>
+</div>
+<!--<h4><a href="<= new_student_url %>">Create new Student url</a></h4>-->
+<!--These are helper  new_path and new_url-->
+
+
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Student-Cohorts Table</h2>
+                       
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Advanced Tables -->
+                        <div class="panel panel-default">
+                            
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Select</th>
+                                                <th>Full Name</th>
+                                                
+                                                <th>Cohorts Enrolled</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           <% @students.each do |my_student| %>
+                                               
+                                                <tr>
+                                                    <td><input type="checkbox" class="my_chbox"></td>
+                                                    <td><%= my_student.full_name %></td>
+                                                   
+                                                    <td >
+                                                      <ul class="std-cohort">
+                                                         <% my_student.student_cohorts.each do |std_cohort| %>
+                                                          <li><%= std_cohort.cohort.name %></li>
+                                                          
+                                                        <% end %>   
+                                                      </ul>
+                                                    </td>
+                                                     
+                                                      <td >
+                                                      <ul class="std-cohort">
+                                                         <% my_student.student_cohorts.each do |std_cohort| %>
+                                                         
+                                                          <li><%= link_to "Delete", std_cohort, 'data-method': "DELETE"  %>
+<!--                             <= link_to 'Delete', std_cohort, method: :delete, remote: true, class: 'delete-cohort' %>-->
+                                                          </li>
+                                                        <% end %>   
+                                                      </ul>
+                                                    </td>
+                                                     
+                                                      <td> <a href="<%= edit_student_path(my_student) %>">Edit</a></td>
+                                                    <td><%= my_student.description %></td>
+                                                </tr>
+                                            
+                                           <% end %>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                 
+                                                <th>Select</th>
+                                                <th>Full Name</th>
+                                                
+                                                <th>Cohorts Enrolled</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Advanced Tables -->
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+
+
+
+
+
+            </div>
+            <!-- /. PAGE INNER  -->
+            
+</body>
+
+
+
+
+
+
+
+
+
+
+

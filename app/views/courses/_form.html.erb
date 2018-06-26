@@ -1,0 +1,33 @@
+<div>
+    <a href="<%= root_path %>">Go HOME</a>
+</div>
+
+
+<%= form_for @course do |f| %>
+
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+</div>
+   
+   
+   <div>
+    <%= f.label :total_hours %>
+    <%= f.number_field :total_hours %>
+    
+</div>
+  
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    
+</div>
+  
+
+
+<div>
+    <%= f.submit  %>
+</div>
+
+<% end %>

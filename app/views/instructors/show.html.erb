@@ -1,0 +1,41 @@
+<h3>Instructor details</h3>
+
+   <div>
+    First Name: <%= @instructor.first_name %>
+    
+</div>
+   <div>
+    Last Name: <%= @instructor.last_name %>
+    
+</div>
+<div>
+    DOB: <%= @instructor.DOB %>
+    
+</div>
+<div>
+    Highest Education: <%= @instructor.highest_education %>
+    
+</div>
+   <div>
+    Salary: <%= @instructor.salary %>
+    
+</div>
+<div>
+    Description: <%= @instructor.description %>
+    
+</div>
+
+     
+  
+   <div>
+    Created: <%= @instructor.created_at %>
+</div>
+   <div>
+    Updated: <%= @instructor.updated_at %>
+</div>
+<div>
+    <a href="<%= instructors_path %>">Go Back</a>
+</div>
+<div>
+    <a href="<%= new_instructor_path %>">Go to New Instructor</a>
+</div>

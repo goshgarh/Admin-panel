@@ -1,0 +1,42 @@
+<h3>Student details</h3>
+
+   <div>
+    First Name: <%= @student.first_name %>
+    
+</div>
+   <div>
+    Last Name: <%= @student.last_name %>
+    
+</div>
+<div>
+    DOB: <%= @student.DOB %>
+    
+</div>
+<div>
+    Highest Education: <%= @student.highest_education %>
+    
+</div>
+<div>
+    Description: <%= @student.description %>
+    
+</div>
+
+   
+   
+   
+   
+   
+  
+  
+   <div>
+    Created: <%= @student.created_at %>
+</div>
+   <div>
+    Updated: <%= @student.updated_at %>
+</div>
+<div>
+    <a href="<%= students_path %>">Go Back</a>
+</div>
+<div>
+    <a href="<%= new_student_path %>">Go to New Student</a>
+</div>

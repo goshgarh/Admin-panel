@@ -1,0 +1,75 @@
+   <html>
+  <head>
+    <title>RailsPamelas</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+    
+<!--    <= stylesheet_link_tag "font-awesome" %>-->
+    
+     <%= javascript_include_tag 'application' %>
+  
+
+
+  </head>
+
+  <body>
+  
+  
+
+
+      
+      
+       
+       <nav class="navbar navbar-expand-lg navbar-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+    <div class="navbar-nav nav nav-pills">
+      <a class="nav-item nav-link active" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="<%= instructors_path %>">Instructors</a>
+      <a class="nav-item nav-link" href="<%= students_path %>">Students</a>
+      <a class="nav-item nav-link" href="<%= courses_path %>">Courses</a>
+       <%= link_to "Cohorts",  cohorts_path, class: "nav-item nav-link" %>
+       <%= link_to "Instructor-Cohorts",  instructor_cohorts_path, class: "nav-item nav-link" %>
+       <%= link_to "Student-Cohorts",  student_cohorts_path, class: "nav-item nav-link" %>
+    </div>
+  </div>
+</nav>
+   
+       
+        
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Admin Table</h2>
+                        
+                    </div>
+                </div>
+                 <div class="wrap">  
+                    <div class="instr"><h6>Instructors</h6>
+                      <p><%= @instructors.length%></p>
+                    
+                    </div>
+                    <div class="stud"><h6>Students</h6>
+                     <p><%= @students.length%></p>
+                     
+                    </div>
+                    <div class="course"><h6>Courses</h6>
+                     <p><%= @courses.length%></p>
+                    
+                    </div>
+                    <div class="cohort"><h6>Cohorts</h6>
+                     <p><%= @cohorts.length%></p>
+                     
+                    </div>
+                </div>         
+            </div>
+            <!-- /. PAGE INNER  -->
+       
+  </body>
+</html>
+      
+

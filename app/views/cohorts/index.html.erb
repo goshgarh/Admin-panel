@@ -1,0 +1,139 @@
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+    <div class="navbar-nav nav nav-pills">
+      <a class="nav-item nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="<%= instructors_path %>">Instructors</a>
+      <a class="nav-item nav-link" href="<%= students_path %>">Students</a>
+      <a class="nav-item nav-link" href="<%= courses_path %>">Courses</a>
+       <%= link_to "Cohorts",  cohorts_path, class: "nav-item nav-link active" %>
+       <%= link_to "Instructor-Cohorts",  instructor_cohorts_path, class: "nav-item nav-link" %>
+       <%= link_to "Student-Cohorts",  student_cohorts_path, class: "nav-item nav-link" %>
+    </div>
+  </div>
+</nav>
+<br>
+
+<div class="atag">  
+    <h4><a href="<%= new_cohort_path %>">Create new Cohort</a></h4>
+
+    <h4><a href="<%= new_course_path %>">Create new Course</a></h4>
+<!--These are helper  new_path and new_url-->
+</div>
+ <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                        <h2>Cohort Table</h2>
+                        
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Advanced Tables -->
+                        <div class="panel panel-default">
+                            
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    
+                                    
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Select</th>
+                                                <th>Cohort Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Students</th>
+                                                <th>Instructors</th>
+                                                 <th>Courses</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           <% @cohorts.each do |my_cohort| %>
+                                               
+                                                <tr class="main-cohort">
+                                                    <td><input type="checkbox" class="my_chbox"></td>
+                                                    <td><%= my_cohort.name %></td>
+                                                    <td><%= my_cohort.start_date %></td>
+                                                    <td><%= my_cohort.end_date %></td>
+                                                    
+                                                    <td>
+                                                      <ul><% my_cohort.students.each do |stud| %>
+                                                          <li><%=stud.full_name %></li>
+                                                        <% end %>   
+                                                      </ul>
+                                                    </td>
+                                                    <td>
+                                                      <ul><% my_cohort.instructors.each do |instr| %>
+                                                          <li><%= instr.full_name %></li>
+                                                        <% end %>   
+                                                      </ul>
+                                                    </td>
+                                                    <td>
+                                                      <%= my_cohort.course.name %>
+                                                          
+                                                      
+                                                     </td>
+                                                     <td> <a href="<%= edit_cohort_path(my_cohort) %>">Edit</a></td>
+         <td><%= link_to 'DeleteAjax', my_cohort, method: :delete, remote: true, class: 'delete-cohort' %></td>   
+                                                     
+                                                    <td><%= my_cohort.description %></td>
+                                                </tr>
+                                            
+                                           <% end %>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Select</th>
+                                                <th>Cohort Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Students</th>
+                                                <th>Instructors</th>
+                                                 <th>Courses</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Advanced Tables -->
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+            </div>
+            <!-- /. PAGE INNER  -->
+        </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

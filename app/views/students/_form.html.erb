@@ -1,0 +1,45 @@
+<div>
+    <a href="<%= root_path %>">Go HOME</a>
+</div>
+<br>
+
+<%= form_for @student do |f| %>
+
+<div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    
+</div>
+   
+   <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    
+</div>
+   
+   <div>
+    <%= f.label :DOB %>
+    <%= f.date_field :DOB %>
+    
+</div>
+
+   
+   <div>
+    <%= f.label :highest_education %>
+    <%= f.select :highest_education, options_for_select([ "High School", "College", "Masters", "PhD" ])  %>
+
+</div>
+  
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    
+</div>
+  
+
+
+<div>
+    <%= f.submit  %>
+</div>
+
+<% end %>
