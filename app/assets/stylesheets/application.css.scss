@@ -12,17 +12,11 @@
  *
 
  *= require bootstrap/dist/css/bootstrap
- *= require font-awesome
  *= require toastr/build/toastr
  *= require_self
  */
 
-@import "toastr";
 @import 'custom';
-@import "font-awesome";
-@import "font-awesome-sprockets.scss";
-@import "font-awesome.scss";
-
 
 body {
     background-color: lavenderblush;
